@@ -2,3 +2,4 @@
 build/
 # Draw IO files.
 *.bkp
+*.aux

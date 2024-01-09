@@ -1,0 +1,290 @@
+\section{Physics model}
+
+\subsection{Summary - equation system}
+
+Definition of pH:
+\begin{equation} \label{eq:pHdef1}
+    pH \equiv -\log\left(\{\ch{H+}\}\right) = -\log\left(a_{\ch{H+}}\right) = -\log(x)
+\end{equation}
+
+Similarly we define $pOH$ as:
+\begin{equation} \label{eq:pHdef1}
+    pOH \equiv -\log\left(\{\ch{OH-}\}\right) = -\log\left(a_{\ch{OH-}}\right) = -\log(y)
+\end{equation}
+
+Water self dissociation:
+\begin{equation}
+    K_w = K_{\ch{H2O}}[\ch{H2O}] = \left\{\ch{H+}\right\} \left\{\ch{OH-}\right\} = x y = 10 ^ {-14}
+\end{equation}
+
+For s system with $K$ different acid components, labeled with index $j \in [1, K]$ we have following laws.
+\textbf{Mass action laws} for each of acids dissociation steps:
+
+\begin{equation}
+    Ka_{ji} = \frac{a_{ji}x}{a_{j,i-1}},\qquad i \in [1, n_j]
+\end{equation}
+
+Besides classical dissociation constants we also have \emph{overall dissociation constants}:
+
+\begin{equation}
+    ka_{ji} = \prod_{r=1}^{i} Ka_{jr} = \frac{a_{ji}x^i}{a_{j0}}
+\end{equation}
+
+\textbf{Mass balance}:
+\begin{equation}
+    c_{Tj} = \sum_{i=0}^{n_j} c_{ji}
+\end{equation}
+
+Solution's \textbf{charge neutrality}:
+\begin{equation}
+    x - \frac{K_w}{x} + \sum_{j=1}^{K} \sum_{i=0}^{n_j} z_{ji} c_{ji} = 0
+\end{equation}
+
+
+All above laws under condition $\gamma_{ji} = 1$ (ideal solution) yield following non-linear equation:
+
+\begin{equation}
+    x - \frac{K_w}{x} + \sum_{j=1}^{K}\frac{c_{Tj}}{1+\sum_{i=1}^{n_j}\frac{ka_{ji}}{x^i}} \
+    \left(z_{j0} + \sum_{i=1}^{n_j}\frac{ka_{ji}}{x^i}\right) = 0
+\end{equation}
+
+\begin{equation}\label{eq:finalIdealSolution}
+    x - \frac{K_w}{x} + \sum_{j=1}^{K}\frac{c_{Tj}}{1+\sum_{i=1}^{n_j}10^{(i pH - pka_{ji})}} \
+    \left(z_{j0} + \sum_{i=1}^{n_j} 10^{(i pH - pka_{ji})}\right) = 0
+\end{equation}
+
+In last equation we assumed that inputs are logarithmic quantities (i. e. $pKa$, $pH$ etc.) rather than
+non-logarithmic versions (e. e. $a_{\ch{H+}}$, $ka_{ji}$).
+
+If strong acids are considered as fully dissociated we can simply add "charge" term, $z_{ji}\times c_Tj$, to the
+equation \eqref{eq:finalIdealSolution}. Canonical examples would be NaOH and HCl.
+
+Whe high levels of ionic strength $I$ are reached activity and concentration start to significantly differ.
+This is corrected by activity correction factor $\gamma$. Easiest way is to replace overall dissociation
+constants with their "effective" counterparts. For derivation see . Below you can see a correction factor
+proposed by Pabst and Carta (ADD REF TO article):
+
+\begin{equation}
+    pKa' = pKa + 2(z_a-1)\left(\frac{A\sqrt{I}}{1+\sqrt{I}} - bI\right)
+\end{equation}
+
+where ion strength is defined as:
+
+\begin{equation}
+    I = \frac{1}{2} \sum_{j=1}^{K} \sum_{i=0}^{n_j} z_{ji}^2 c_{ji}
+\end{equation}
+
+from which follows:
+
+\begin{equation}
+    pka' = \sum_{r=1}^{i} pKa'_r
+\end{equation}
+
+For more complete description and references see section \ref{}.
+
+\subsection{Acid}
+
+Definition of an acid and a base:
+\begin{itemize}
+    \item \textbf{Acid} is a chemical substance that can donate a proton (HA -> A$^-$).
+    \item \textbf{Base} is a chemical substance that can accept a proton (BOH -> B$^+$).
+    \item \textbf{Zwiterion} is a molecule with functional groups of which one has positive and one has negative charge. The net charge of the molecules is zero. Example of zwiterions are amino acids.
+\end{itemize}
+
+
+\subsection{Water solution}
+
+\subsection{Molarity, molality and mass concentration}
+
+In chemistry word concentration often has context dependent meaning. This section is here to provide short clarification about the different "kinds" of concentrations and should make life easier for anyone reading this notes.
+
+\paragraph*{Mass fraction}
+is defined as:
+\begin{equation}\label{eq:defMassFrac}
+    w = \frac{m_{species}}{m_{solution}},
+\end{equation}
+
+here $m_{species}$ is mass of specific solute, and $m_{solution}$ is total mass of solution (i. e. solvent and all solutes). It is unitless but often it is expressed in percentages.
+
+\paragraph*{Mass concentration}
+is defined as:
+\begin{equation}\label{eq:defMassConc}
+    c^{m} = \frac{m_{species}}{V_{solution}},
+\end{equation}
+
+here $m_{species}$ is mass of specific solute, and $V_{solution}$ is total volume of solution. Note: volume is note additive quantity.
+
+Units are:
+\[\left[c^{m}\right]=\left[\frac{\text{g}}{\text{l}}\right]\]
+
+\paragraph*{Molar concentration - molarity}
+is defined as:
+\begin{equation}\label{eq:defMolarConc}
+    c = \frac{n_{species}}{V_{solution}},
+\end{equation}
+
+where $n_{species}$ is moles of specific solute (i. e. $m/M$), and $V_{solution}$ is total volume of solution.
+
+Units are:
+\[\left[c\right]=\left[\frac{\text{mol}}{\text{l}}\right]= [M]\]
+
+
+\paragraph*{Equivalent concentration - normality}
+\paragraph*{Molal concentration - molality}
+\paragraph*{Activity}
+
+
+\subsubsection{Notation}
+
+Let us assume that our physical system, water solution, is composed of following components:
+water, strong acids/bases, any number of weak acids/bases and salts. Notation established in this
+chapter is valid throughout all the notes. It gives common ground how to reference different quantities
+so that we can avoid any additional confusion. I will reference this at many points in following notes.
+
+Let us have water solution with $K$ different acidic components. Index $j$ is used to count/label
+individual acidic component. For example $j=0$ might be acidic acid, which was added to the solution. Thus, indices $j$ run from 1 to K.
+\[j \in [1, K]\].
+
+Another highly relevant quantity is the total amount of added acid component (e. g. added acetic acid), we will label this as $c_{jT}$. $j$ denotes the specific acid and $T$ signifies that this is total added concentration.
+
+In water each acid dissolves and breaks into multiple ion species. We designate number of those with $n_j + 1$ (due to zero indexing convention) and index $i$ is used as a marker. Thus,
+\[i \in [0, n_j]\]
+
+Putting both indices together, molar concentration of each ion species is labeled with $c_{ji}$ and similarly activity is labeld with $a_{ji}$. There is alternative notation, when one desires more explicit species label, which utilizes square ([]) and curly (\{\}) brackets to designate molar concentration or activity, respectively.
+Hence, following is equivalent:
+\begin{align}
+    \{\text{IonName}\} & = a_{ji}, \\
+    [\text{IonName}]   & = c_{ji}.
+\end{align}
+
+With upper case $K_{ji}$ we designate acid dissociation constant and with lower case $k_{ji}$ its
+overall counter part. Since we only have $n_j$ dissociation constants, we have an important exception
+that $i \in [1, n_j]$.
+
+Following terminology is convenient and often used:
+\begin{itemize}
+    \item $n_j=1$ - monoprotic acid $j$,
+    \item $n_j=2$ - diprotic acid $j$,
+    \item $n_j=3$ - triprotic acid $j$,
+    \item $n_j>1$ - poliprotic acid $j$.
+\end{itemize}
+
+pH relevant chemicals:
+\begin{itemize}
+    \item H$^{+}$ - hydrogen ion
+    \item H$_3$O$^{+}$ - hydronium (hydroxonium)
+    \item OH$^{-}$ - hydroxide ion
+\end{itemize}
+
+
+
+\subsection{pH definition and water self-ionization}
+
+\noindent
+Historically (at least according to Wikipedia) pH measures hydrogen potential. It is defined as negative logarithm of hydrogen ion concentration:
+\begin{equation}\label{eq:phDef}
+    \ch{pH} = -\log \left(\left\{\ch{H+}\right\}\right) = -\log\left(a_{\ch{H^+}}\right)
+\end{equation}
+See appendix for typical pH values of "natural" occuring everyday fluids.
+
+\noindent
+Similarly we can define pOH as potential of hydroxide ion:
+\begin{equation}\label{eq:pohDef}
+    \ch{pOH} = -\log \left(\left\{\ch{OH-}\right\}\right) = -\log\left(a_{\ch{OH-}}\right)
+\end{equation}
+
+\paragraph*{Self-ionization of water.} Water also behaves as an acid and as a base, it self dissociates
+into "hydrogen-like" positive ions, which are represented by hydrogen concentration, and hydroxide ions.
+Dissociation is described by following chemical reaction:
+
+\ch{H2O <=> H+ + OH-}
+
+Dynamics of this equilibrium equation is described by water dissociation constant:
+
+\begin{equation}\label{eq:waterSelfDiss}
+    K_w = K_{H_2O}[H_2O] = \{\ch{H+}\}\{\ch{OH-}\} = xy = 10^{-14}
+\end{equation}
+
+If we take negative logarithm of the equation \ref{eq:waterSelfDiss} we see that the sum of pOH and pH is equal to 14.
+
+\begin{equation}\label{eq:phPoh}
+    \text{p}K_w = \ch{pH} + \ch{pOH} = 14
+\end{equation}
+
+
+\subsection{Overall dissociation constants}
+
+When acid component is dissolved in water it dissociates in a number of sub species. This happens
+in step wise manner; meaning that, each component dissociates into two components: a child ion and an hydrogen ion.
+In next step the child ion again dissociates in the same manner. Process continuous till acid runs out
+of donor protons.
+
+Dissociation of an acid with $n_j$ dissociation steps can be represented by following reactions:
+
+\vspace{0.3cm}
+\begin{center}
+    \noindent
+    \ch{H_{$n_j$}A <=> H_{$n_j-1$}A- + H+} \\
+    \ch{H_{$n_j - 1$}A- <=> H_{$n_j-2$}A^{2-} + H+} \\
+    \dots \\
+    \ch{H_{$n_{j} - i + 1$}A^{$i - 1$} <=> H_{$n_j-i$}A^{$- i$} + H+} \\
+    \dots \\
+    \ch{HA^{$-n_j + 1$-} <=> HA^{-$n_j$} + H+}
+\end{center}
+\vspace{0.5cm}
+
+An example for tri-protic acid (e. g. Phosphoric acid):
+
+\vspace{0.3cm}
+\begin{center}
+    \noindent
+    \ch{H3A <=> H2A- + H+} \\
+    \ch{H2A- <=> HA^{2-} + H+} \\
+    \ch{HA^{2-} <=> A^{3-} + H+}
+\end{center}
+\vspace{0.5cm}
+
+
+For each of the above chemical reactions an equilibrium between precursor ion and product ion is established.
+The ratio is described by the corresponding acid dissociation constant. This may be written as:
+
+\begin{align*}
+    K_{a_{j1}} & = \frac{\left\{\ch{H}_{n_j}\ch{A}\right\}x}{\left\{\ch{H}_{n_j-1}\ch{A-}\right\}}  \
+    = \frac{a_{j1}x}{a_{j0}}
+    \\
+    K_{a_{j2}} & = \frac{\left\{\ch{H}_{n_j-1}\ch{A-}\right\}x}{\left\{\ch{H}_{n_j-2}\ch{A^{2-}}\right\}}   \
+    = \frac{a_{j2}x}{a_{j1}}
+    \\
+    \dots
+    \\
+    K_{a_{ji}} & = \frac{\left\{\ch{H}_{n_j-i+1}\ch{A}^{-i+1}\right\}x}{\left\{\ch{H}_{n_j-i}\ch{A^{i-}}\right\}} \
+    = \frac{a_{ji}x}{a_{j,i-1}}
+    \\
+    \dots
+\end{align*}
+
+During the calculations it is convenient to define overall dissociation constant:
+
+\begin{equation}
+    k_{a_{ji}} \equiv \prod_{r=1}^{i} K_{a_{jr}}
+\end{equation}
+
+We can now rewrite this with overall dissociation constants, for acid $j$ we get:
+
+\begin{align*}
+    k_{a_{j1}} & = K_{a_{j1}} = \frac{a_{j1} x}{a_{j0}}
+    \\
+    k_{a_{j2}} & = K_{a_{j1}} K_{a_{j2}} = \frac{a_{j1} x} {a_{j0}} \frac{a_{j2}x}{a_{j1}}
+    = \frac{a_{j1}x^2}{a_{j0}}
+    \\
+    \dots                                                                                  \\
+    k_{a_{ji}} & = K_{a_{j1}} K_{a_{j2}} \dots K_{a_{ji}}
+    = \frac{a_{j1} x} {a_{j0}} \frac{a_{j2}x}{a_{j1}}\frac{a_{j3}x}{a_{j2}} \dots
+    \frac{a_{j,i-1}x}{a_{j,i-2}}\frac{a_{ji}x}{a_{j,i-1}}
+    = \frac{a_{ji}x^i}{a_{j0}}
+    \\
+\end{align*}
+
+\section{Conclusion}
+
+This is to be concluded.
