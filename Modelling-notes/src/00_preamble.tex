@@ -41,7 +41,7 @@
 \setmainfont{Calibri}
 
 % Required for including images.
-\usepackage{graphicx} 
+\usepackage{graphicx}
 \graphicspath{{figures/}} % Directory in which figures are stored
 
 
@@ -49,17 +49,21 @@
 % Colors can be mixed like \color{red!30!green!40!blue}.
 \usepackage{xcolor}
 
+% Disable indentation of paragraphs.
+\usepackage{parskip}
+
 % Cross-references are links.
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    filecolor=brown,      
+    filecolor=brown,
     urlcolor=darkgreen,
-    }
+}
 
 % Commands.
 \newcommand{\ud}{\,\mathrm{d}}
+\newcommand{\ve}[1]{\vec{#1}}
 
 % Environments.
 
@@ -68,3 +72,8 @@
 % Counters.
 
 % Lengths.
+%\setlength{\parindent}{0pt}
+
+\title{DSP modelling notes}
+\author{Luka Jeromel}
+\date{\today}

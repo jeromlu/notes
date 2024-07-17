@@ -26,13 +26,13 @@ that can reach deep inside many of the pores will travel along the column
 slower and thus reach the end of the column at latter time or volume.
 
 Just as a side note, if the conditions are not perfectly non binding, then
-exclusion, besides steric basis, may also arise due to: 
+exclusion, besides steric basis, may also arise due to:
 \begin{itemize}
     \item if one component is more strongly retained than
-    other it will be unable to displace first component and thus won't be able to
-        interact with surface.
+          other it will be unable to displace first component and thus won't be able to
+          interact with surface.
     \item if component is charged with the same sign as the surface the
-        particles will have difficulties entering pores due to Donnan effect.
+          particles will have difficulties entering pores due to Donnan effect.
 \end{itemize}
 
 Particle size as well as pore size both play major part in this size exclusion
@@ -44,7 +44,7 @@ One way to experimentally determine PSD is to probe the column with
 non-interacting particles of different but well known sizes. Very efficient and
 well-behaved molecules that are often utilized in such column scrutinization
 are Dextrans\footnote{Dextran is a complex branched glucan (polysaccharide
-derived from the condensation of glucose), originally derived from wine.} 
+    derived from the condensation of glucose), originally derived from wine.}
 of different sizes.
 
 % TODO (ljeromel): Matic add table of dextrans.
@@ -52,7 +52,7 @@ of different sizes.
 For example Dextran-blue (mass of) is regularly utilized to determine
 extraparticle volume void (extraparticle porosity).
 
-Let us first define retention (elution) volume. Retention volume of a component 
+Let us first define retention (elution) volume. Retention volume of a component
 is the volume after which the component It is measured from the point when
 sample with the component is applied to the top of the column and to the point when that
 specific component flows out of the bottom of the column. We will denote this
@@ -63,10 +63,10 @@ Within the chromatographic column there are three characteristic volumes:
 
 \begin{itemize}
     \item Total column volume $V_c$ - volume of the empty "glass" cylinder which is
-        used as the column housing and into which we pack the resin beads. 
+          used as the column housing and into which we pack the resin beads.
     \item Extra particle void volume $V_0$ - empty volume between the
-        particles. It is the empty volume of the packed colum if particles
-        wouldn't be porous (full beads).
+          particles. It is the empty volume of the packed colum if particles
+          wouldn't be porous (full beads).
     \item Intra particle void volume $V_{p}$ - empty volume within all beads.
 \end{itemize}
 
@@ -80,21 +80,21 @@ known and almost impossible to determine).
 
 
 \begin{figure}[h]
-	\centering
+    \centering
     \includegraphics[width=0.7\textwidth]{SEC_volume.jpg}
     \caption{Schematic picture of different void volumes with respect to the
-    molecule's elution volume. $V_0$ represents the column's extra (inter-)
-    particle void volume. $V_t$ is the total void volume; i. e., $V_0$ and void
-    volume inside all pores of all particles. The difference $V_t - V_0$ is
-    volume of all pores inside all beads. $V_acc(r_m)$ is the sum of all pore
-    volumes that are accessible to specific probe molecule of radius $r_m$.}
-	\label{fig:volScale}
+        molecule's elution volume. $V_0$ represents the column's extra (inter-)
+        particle void volume. $V_t$ is the total void volume; i. e., $V_0$ and void
+        volume inside all pores of all particles. The difference $V_t - V_0$ is
+        volume of all pores inside all beads. $V_acc(r_m)$ is the sum of all pore
+        volumes that are accessible to specific probe molecule of radius $r_m$.}
+    \label{fig:volScale}
 \end{figure}
 
 Since probe molecule has a finite size and the pores sizes range from $r_{min}$
 to $r_{max}$ not all pores' void volume is available to the molecule. The
 accumulative volume of all pores that can be permeated by a molecule of size
-$r_m$ is designated by $V_{acc}(r_m)$. 
+$r_m$ is designated by $V_{acc}(r_m)$.
 
 By definition we know that $V_{acc}(r_m)$ is in the interval $[V_0, V_t]$.
 Lower bound means that molecules can't fit into any of the pores, while upper
@@ -108,20 +108,20 @@ accumulative accessible pore volume and all present pore volume, $K$:
     K(r_m) = \frac{V_{acc}(r_m)}{V_p}
 \end{equation}
 
-Newly introduced quantity is called exclusion factor and it represents fraction 
-of the total pore volume of the matrix which is accessible to a molecule of 
+Newly introduced quantity is called exclusion factor and it represents fraction
+of the total pore volume of the matrix which is accessible to a molecule of
 radius $r_m$.
 
 \begin{figure}[h]
-	\centering
+    \centering
     \includegraphics[width=0.4\textwidth]{probe_accessible_vol.jpg}
     \caption{$V_0$ is the column void volume available to all molecules
-    (including very large ones). $V_t$ is the total void volume which is $V_0$
-    and all void volume in bead's pores. Molecule which can fit into some}
-	\label{fig1}
+        (including very large ones). $V_t$ is the total void volume which is $V_0$
+        and all void volume in bead's pores. Molecule which can fit into some}
+    \label{fig1}
 \end{figure}
 
-Let us now focus only on one pore size. Accessible volume for spherical probe 
+Let us now focus only on one pore size. Accessible volume for spherical probe
 molecule with radius, $r_m$ and infinite cylindrically shaped pore with radius
 $r$ is:
 \begin{equation} \label{eq:acc_vol}
@@ -131,7 +131,7 @@ and whole volume of corresponding pore:
 \begin{equation}
     V_{p}(r) = \pi r^2 * L,
 \end{equation}
-where $L\rightarrow\infty$. An important assumption is that we model pores by 
+where $L\rightarrow\infty$. An important assumption is that we model pores by
 infinitely long cylinders.
 
 
@@ -147,11 +147,11 @@ than the probe size. In this case accessible volume for specific probe pore
 combination is zero. We get following expression for the local exclusion
 factor:
 \begin{equation}\label{eq:local_ex_coeff}
-	K(r, r_m) = 
-	\begin{cases}
-        \left(1 - \frac{r_m}{r}\right)^2 & r_m < r,  \\
-		0           & r_m \geq r
-	\end{cases}
+    K(r, r_m) =
+    \begin{cases}
+        \left(1 - \frac{r_m}{r}\right)^2 & r_m < r,   \\
+        0                                & r_m \geq r
+    \end{cases}
 \end{equation}
 
 
@@ -168,7 +168,7 @@ radius between $r_1$ and $r_2$:
 
 At this point we should mention one important distinction. Two volumes, total
 pore volume and total accessible pore volume for smallest available probe
-molecule. As smallest available probe molecule is usually very small, both 
+molecule. As smallest available probe molecule is usually very small, both
 volumes are very close to each other.
 However, they are not the same. In some articles total accessible volume is used
 for normalization, while in some other cases the total pore volume is used for
@@ -234,26 +234,3 @@ within a range $r$ to $r+\ud r$ and is given by
 \begin{equation}
     K = \int_{r_m}^{\infty} f'(r)\left(1 - \frac{r}{r_m}\right)^2\ud r
 \end{equation}
-
-
-
-
-\appendix
-
-\section{Glossary}
-
-Here one may find few common but also prone to raise a confusion terms, which
-are grouped together in a meaningful way  order to elevate understanding and 
-memorization of those.
-
-
-Some commonly used Latin prefixes:
-\begin{itemize}
-    \item \textbf{extra-} or \textbf{extro-} - outside (slo. zunaj) - extra-particle volume
-    \item \textbf{inter-} - between or among (slo. med) - inter-particle volume,
-        inter-molecular bonds.
-    \item \textbf{intra-} - within (slo. znotraj) - intra-particle volume,
-        intra-molecular bonds.
-\end{itemize}
-
-

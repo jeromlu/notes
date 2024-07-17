@@ -1,4 +1,4 @@
-[CmdletBinding(PositionalBinding=$false)]
+[CmdletBinding(PositionalBinding = $false)]
 
 Param(
     # If specified, the script only removes the build outputs and exits.
@@ -14,7 +14,7 @@ $ErrorActionPreference = 'Stop'
 $buildDirName = "build"
 # Name of the file that will be compiled. Output files will also be named with the same name.
 #$fileName = "brachytherapyNotes"
-$fileName = "chrom_modelling_notes_main"
+$fileName = "modelling_notes_main"
 $BUILD_DIR = "$PSScriptRoot\$buildDirName"
 
 function Remove-ByForce {
